@@ -1,0 +1,31 @@
+{
+  "name": "ssb-exchange-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SSB 交易所普通 Web 本地版",
+  "scripts": {
+    "dev": "node --disable-warning=ExperimentalWarning server/server.js",
+    "seed": "node --disable-warning=ExperimentalWarning server/seed.js",
+    "seed-v3": "node --disable-warning=ExperimentalWarning server/seed-v3.js",
+    "seed-demo": "node --disable-warning=ExperimentalWarning server/seed-demo.js",
+    "reset-db": "node --disable-warning=ExperimentalWarning server/server.js --reset-db",
+    "test": "npm run test:server && npm run test:price && npm run test:persistence && npm run test:funds && npm run test:sports && npm run test:sports:stars && npm run test:sports:http && npm run test:calibration && npm run test:orderflow && npm run test:messages && npm run test:web && npm run test:news && npm run test:migration",
+    "test:news": "node --disable-warning=ExperimentalWarning server/news-balance-test.js",
+    "test:server": "node --disable-warning=ExperimentalWarning server/smoke-test.js",
+    "test:price": "node --disable-warning=ExperimentalWarning server/price-engine-test.js",
+    "test:persistence": "node --disable-warning=ExperimentalWarning server/state-persistence-test.js",
+    "test:funds": "node --disable-warning=ExperimentalWarning server/fund-engine-test.js",
+    "test:sports": "node --disable-warning=ExperimentalWarning server/sports-engine-test.js",
+    "test:sports:stars": "node --disable-warning=ExperimentalWarning server/sports-stars-calibration-test.js",
+    "test:sports:http": "node --disable-warning=ExperimentalWarning server/sports-http-test.js",
+    "test:migration": "node --disable-warning=ExperimentalWarning server/db-migration-test.js",
+    "test:calibration": "node --disable-warning=ExperimentalWarning server/calibration-test.js",
+    "test:orderflow": "node --disable-warning=ExperimentalWarning server/order-flow-test.js",
+    "test:messages": "node --disable-warning=ExperimentalWarning server/error-message-test.js",
+    "test:web": "node --disable-warning=ExperimentalWarning web/render-test.js",
+    "test:p2p": "node --disable-warning=ExperimentalWarning server/p2p-e2e-test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
