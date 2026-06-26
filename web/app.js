@@ -3317,7 +3317,7 @@
     const beforeGameOne = gameOne && ['unopened', 'open'].includes(gameOne.status);
     const label = beforeGameOne ? `G1 · ${formatSportsTime(gameOne.scheduled_at)}`
       : (series?.status === 'completed' ? '已结束' : '系列赛');
-    const showDetail = anyMarketOpen && !series?.preview;
+    const showDetail = !!series && !series.preview && (series.status !== 'pending' || series.market?.status === 'open');
     const canBet = !!series && !series.preview && series.market?.status === 'open'
       && !state.sleeping && !state.sportsOverview?.paused;
     const completed = series?.status === 'completed' && !!series?.winner_team?.id;
